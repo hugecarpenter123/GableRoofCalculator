@@ -1,20 +1,12 @@
 import math
 import turtle
-#to delete----------
-# from dekarz.class_CieciaNaKrokwach import CieciaNaKrokwach
-#
-# data = {'h': 260, 'd': 697, 'p': 35, 'h_krokwi': 8, 'op': 200, 'hj': 149.18}
-# dach1 = CieciaNaKrokwach(data)
-#to delete----------
 
 def symuluj(dach1, rysujPlatwe, rysujJetke):
 
     canvas = turtle.Screen()
     turtle.TurtleScreen._RUNNING = True
 
-    #dane
     kat = (180 - dach1.kat_dachu) / 2
-    #-------------------------------
 
     # 1 pal
     s = turtle.Turtle()
@@ -43,7 +35,6 @@ def symuluj(dach1, rysujPlatwe, rysujJetke):
     s.goto(250, 50)
     s.left(90)
 
-    #obrócony w prawo, robienie dachu
     alfa = dach1.kat_dachu
     # alfa = 120
     distance = 250 / math.cos(math.radians(90 - 0.5 * alfa))
@@ -84,12 +75,10 @@ def symuluj(dach1, rysujPlatwe, rysujJetke):
     s.forward(distance+kpd)
     s.left(180-dach1.depka['kąt'])
     s.forward(dkxh)
-    # print(s.heading())
 
     # rysowanie siatki
     s.penup()
     s.goto(-250, 50)
-    # print(s.heading())
     s.right(s.heading())
     s.pendown()
     s.color('grey')
@@ -184,11 +173,9 @@ def symuluj(dach1, rysujPlatwe, rysujJetke):
         #ustawienie kursora na górze krokwy wewnętrznej
         s.setx(0)
         s.sety(50+h)
-        #heading: do góry
         #przejście na wysokość rysowania spodu jętki
         s.right(90 + kat)
         s.forward(djw_s)
-        #obrót równolegle do ziemi
         s.right(180 - kat)
         # rysowanie jętki
         s.pendown()
@@ -216,11 +203,4 @@ def symuluj(dach1, rysujPlatwe, rysujJetke):
         s.forward(b)
         s.hideturtle()
 
-        print(s.heading())
-
-    # koniec
     canvas.exitonclick()
-
-#to delete----------
-# symuluj(dach1, True, True)
-#to delete----------

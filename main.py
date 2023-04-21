@@ -1,21 +1,16 @@
 import tkinter
 from PIL import ImageTk, Image
-import math
-import os
 from CieciaKrokwi import CieciaNaKrokwach
-from rysuj_krokiew import rysuj, dotted
+from rysuj_krokiew import rysuj
 from symuluj_dach import symuluj
 
 
 dach = None
 
 root = tkinter.Tk()
-# root.geometry('800x560')
 root.geometry('900x600')
 root.title('Wymiary i kąty krokwi')
 
-# img = Image.open("dach_bazapj.bmp")
-# img_resized = img.resize((800, 600))
 img = Image.open("assets/dach_baza3.bmp")
 img_resized = img.resize((900, 600))
 
@@ -25,8 +20,6 @@ bgLabel.place(x=0, y=0, relwidth=1, relheight=1)
 side_frame = tkinter.Frame(root, width=200, bg='white')
 side_frame.place(x=20, y=20)
 
-# info_frame = tkinter.Frame(root, width=200, height=200, padx=10, pady=10)
-# info_frame.place(x=20, y=20)
 info_frame = tkinter.Frame(side_frame, width=200, padx=10, pady=10)
 info_frame.grid(row=0, column=0)
 
@@ -55,7 +48,7 @@ def oblicz():
     data['h_krokwi'] = float(g_entry.get())
     data['p'] = float(p_entry.get())
     dach = CieciaNaKrokwach(data)
-    # dach.podsumowanie()
+
     uzupelnij_dane(dach)
 
 def uzupelnij_dane(dach_obj):
@@ -263,19 +256,14 @@ jetka_checkbox = tkinter.Checkbutton(info_frame, text="z jętkami", onvalue=1, o
                                       , font=('arial', 10), variable=jetka_intVar)
 jetka_checkbox.grid(row=7, column=0, columnspan=3, sticky='w')
 # jętka row ---------------------------------------------
-# jętka entry:
 jetka_label = tkinter.Label(info_frame, text="hj = ", font=('Arial', 12))
-# jetka_label.grid(row=8, column=0, padx=(0,20))
 jetka_entry = tkinter.Entry(info_frame, width=8, font=('Arial', 10))
-# jetka_entry.grid(row=8, column=1)
 cm_jetka = tkinter.Label(info_frame, text="cm", font=('Arial', 11))
-# cm_jetka.grid(row=8, column=2) # obsługuje funkcja
 
 # submit button
 submitBtn = tkinter.Button(info_frame ,text="Oblicz", font=("Arial", 12), width=8, command=oblicz
                            , cursor='hand2')
 submitBtn.grid(row=9, column=0, columnspan=3, pady=(10,0))
-
 # end infoframe================================================================
 
 # symuluj-dach button ---------------------------------------------
@@ -378,7 +366,6 @@ p_opp_wynik.grid(row=2, column=1, sticky='ew')
 
 # output frame 5 ------------------------------------------------------------------------------------------
 outputFrame5 = tkinter.Frame(width=260, height=100, bd='4')
-# outputFrame5.place(x=590, y=125)
 
 j_c = tkinter.Label(outputFrame5, text=f'{"Długość jętki: "}', anchor='w')
 j_o = tkinter.Label(outputFrame5, text=f'{"Odległość od końca krokwi do spodu jętki: "}', anchor='w', bg='lightgrey')
@@ -393,5 +380,3 @@ j_c_wynik.grid(row=0, column=1, sticky='ew')
 j_o_wynik.grid(row=1, column=1, sticky='ew')
 
 root.mainloop()
-
-# app = App()

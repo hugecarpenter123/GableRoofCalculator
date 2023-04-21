@@ -152,8 +152,3 @@ class CieciaNaKrokwach():
               f"{'-> kąt (prostopadły):':28s} {self.depka['kąt']}\N{DEGREE SIGN}\n"
               f"{'-> kąt (równoległy):':28s} {self.depka['kąt2']}\N{DEGREE SIGN}\n"
               f"{'-' * 54}\n")
-
-# data = {'h': 250, 'd': 900, 'p': 35, 'h_krokwi': 8, 'op': 200}
-# data = {'kat_dachu': 80, 'd': 400, 'p': 35, 'h_krokwi': 8}
-# dach1 = CieciaNaKrokwach(data)
-# dach1.podsumowanie()

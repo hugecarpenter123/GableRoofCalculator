@@ -1,13 +1,6 @@
 import turtle
 import math
 
-#to delete----------
-# from dekarz.class_CieciaNaKrokwach import CieciaNaKrokwach
-#
-# data = {'h': 260, 'd': 697, 'p': 35, 'h_krokwi': 8, 'op': 200, 'hj': 149.18}
-# dach1 = CieciaNaKrokwach(data)
-#to delete----------
-
 def dotted(item, length: int):
     for i in range(length // 4):
         if i % 2 == 0:
@@ -40,7 +33,6 @@ def rysuj(dach1, drugaDepka):
     krokwa.forward(60)
 
     krokwa.penup()
-    # krokwa.hideturtle()
     krokwa.left(180)
     krokwa.forward(60)
     krokwa.right(90)
@@ -105,14 +97,12 @@ def rysuj(dach1, drugaDepka):
     krokwa.penup()
     krokwa.goto(0, 0)
 
-    # rysuj depke
+    # rysuj zamek
     krokwa.penup()
     depka1 = (dach1.depka['odległość'] * 600) / dach1.d_krokwi_calkowita
     krokwa.setx(-300 + depka1)
     krokwa.sety(-30)
 
-    # print(krokwa.heading())
-    # print(dach1.depka['kąt'], dach1.depka['kąt2'])
     if dach1.kat_dachu <= 90:
         krokwa.right(90)
     else:
@@ -129,7 +119,6 @@ def rysuj(dach1, drugaDepka):
     krokwa.penup()
     krokwa.goto(-300 + depka1 - z, -30)
     krokwa.right(krokwa.heading())
-    # krokwa.right(90)
     krokwa.left(dach1.depka['kąt2'])
     krokwa.pendown()
     zx = 30 / math.tan(math.radians(dach1.depka['kąt2']))
@@ -139,7 +128,6 @@ def rysuj(dach1, drugaDepka):
     krokwa.color('black')
 
     # rysowanie łuków do kątów
-    # pierszy łuk
     krokwa.penup()
     krokwa.goto(-300 + depka1, -30)
     krokwa.right(krokwa.heading())
@@ -169,7 +157,6 @@ def rysuj(dach1, drugaDepka):
     krokwa.color('orange')
     krokwa.pendown()
     krokwa.write(f"{180 - round(dach1.depka['kąt2'], 2)}\N{DEGREE SIGN}", font=('arial', 10, 'bold'))
-    # krokwa.hideturtle()
 
     # zaznaczanie długości
     krokwa.penup()
@@ -193,7 +180,7 @@ def rysuj(dach1, drugaDepka):
     krokwa.pendown()
     krokwa.write(str(dach1.d_krokwi_calkowita) + 'cm', font=('arial', 10, 'bold'))
 
-    # od zacięcia do depki
+    # od zacięcia do zamka
     krokwa.penup()
     if dach1.kat_dachu <= 90:
         krokwa.goto(-300 + x + c, -30)
@@ -206,11 +193,9 @@ def rysuj(dach1, drugaDepka):
     krokwa.left(90)
     krokwa.color('darkgrey')
     if dach1.kat_dachu <= 90:
-        # krokwa.forward(300 - x - c + 230)
         krokwa.setx(-300 + depka1)
 
     else:
-        # krokwa.forward(300 - x + 230)
         krokwa.setx(-300 + depka1)
     krokwa.color('grey')
     krokwa.right(90)
@@ -255,9 +240,3 @@ def rysuj(dach1, drugaDepka):
 
     krokwa.hideturtle()
     canvas.exitonclick()
-
-
-
-#to delete----------
-# rysuj(dach1, True)
-#to delete----------
